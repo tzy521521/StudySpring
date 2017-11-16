@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置Bean的方式(通过全类名（反射）、通过工厂方法（静态工厂方法 & 实例工厂方法）、FactoryBean)-->
+    <!--依赖注入（DI）的方式(setter设值注入,构造函数注入)-->
+
+    <!--通过全类名(反射)配置;通过 setter方法注入属性值,要求Bean中必须要有无参构造器。-->
+    <bean id="helloWorld1" class="cn.lovepi.HelloWorld">
+        <property name="userNme" value="Spring"/>
+    </bean>
+    <bean id="helloWorld2" class="cn.lovepi.HelloWorld">
+        <property name="userNme" value="Spring1"/>
+    </bean>
+
+    <!-- 通过全类名(反射)配置;通过构造器注入属性值,Bean可以没有无参构造器 -->
+    <!-- 若一个 bean 有多个构造器,可以根据 index(索引)或者type（类型） 和 value 进行更加精确的定位。-->
+    <bean id="car1" class="cn.lovepi.Car">
+        <constructor-arg value="KUGA" type="java.lang.String"/>
+        <constructor-arg value="ChangAnFord" type="java.lang.String"/>
+        <constructor-arg value="250000" type="float"/>
+    </bean>
+    <bean id="car2" class="cn.lovepi.Car">
+        <constructor-arg value="KUGA" type="java.lang.String"/>
+        <constructor-arg value="ChangAnFord" type="java.lang.String"/>
+        <constructor-arg value="150" type="int"/>
+    </bean>
+</beans>
